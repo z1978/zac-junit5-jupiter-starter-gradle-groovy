@@ -1,0 +1,24 @@
+plugins {
+	id 'groovy'
+	id 'eclipse' // optional (to generate Eclipse project files)
+	id 'idea' // optional (to generate IntelliJ IDEA project files)
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation(localGroovy())
+	testImplementation('org.junit.jupiter:junit-jupiter:5.5.0')
+  testCompile group: 'org.junit.platform', name: 'junit-platform-launcher', version: '1.5.0'
+  
+  
+}
+
+test {
+	useJUnitPlatform()
+	testLogging {
+		events "passed", "skipped", "failed"
+	}
+}
